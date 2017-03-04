@@ -6,11 +6,11 @@ class Cache(val id: Number, private val size: Int) {
     get
 
     fun addVideo(video: Video) {
-        videos.add(video)
-        placeOccupied += video.size
-        if (placeOccupied > size) {
+        if (placeOccupied + video.size > size) {
             throw RuntimeException("Place exceeded")
         }
+        placeOccupied += video.size
+        videos.add(video)
     }
 
     fun getPlaceRemained(): Int {

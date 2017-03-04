@@ -16,7 +16,7 @@ class Requests(val video: Video, private val endpoint: Endpoint, private val cou
 
     fun calcRank() {
         val bestCacheConnection = endpoint.getMinLatencyCacheConnection(video)
-        val currentBestConnectionToVideo = endpoint.getMinLatenctCacheConnectionWithVideo(video)
+        val currentBestConnectionToVideo = endpoint.getMinLatencyCacheConnectionWithVideo(video)
         rank = count * (currentBestConnectionToVideo.latency - bestCacheConnection.latency)
         bestCache = bestCacheConnection.cache
         isValid = true
